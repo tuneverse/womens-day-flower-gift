@@ -35,7 +35,7 @@
 .celebration .gift-button { min-width: 220px; display: inline-flex; justify-content: space-between; align-items: center; gap: 25px; border: 0; border-radius: 2px; padding: 15px 17px 15px 20px; color: #fff9f1; background: var(--wine); font-size: 11px; letter-spacing: .4px; cursor: pointer; box-shadow: 0 8px 22px rgba(106, 52, 66, .14); transition: transform .5s ease, background .5s ease, box-shadow .5s ease; }
 .celebration .gift-button:hover { transform: translateY(-3px); background: #6f3445; box-shadow: 0 12px 24px rgba(106, 52, 66, .2); }
 .celebration .gift-button:focus-visible { outline: 2px solid #c17b80; outline-offset: 4px; }
-.celebration .button-arrow { font-size: 17px; line-height: 1; transition: transform .5s ease; }
+.celebration .button-arrow { width: 17px; height: 17px; flex: 0 0 17px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; transition: transform .5s ease; }
 .celebration .gift-button:hover .button-arrow { transform: translate(2px, -2px); }
 .celebration .gift-note { min-height: 55px; max-width: 370px; margin-top: 19px; display: flex; align-items: flex-start; gap: 11px; color: #a18480; transition: color .7s; }
 .celebration .gift-note p { margin: 1px 0 0; font: italic 13px/1.55 var(--font-editorial); }

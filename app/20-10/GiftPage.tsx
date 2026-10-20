@@ -88,20 +88,27 @@ export default function GiftPage({ fontClassName }: { fontClassName: string }) {
 
       <section className="hero" aria-labelledby="hero-title">
         <div className="hero-copy">
-          <div className="pretitle"><span className="pretitle-line" /> MỘT ĐIỀU NHỎ DÀNH RIÊNG CHO BẠN</div>
+          <div className="pretitle"><span className="pretitle-line" /> MỘT ĐIỀU NHỎ DÀNH RIÊNG CHO EM</div>
           <p className="date-script">Ngày Phụ nữ Việt Nam <span>♡</span></p>
-          <h1 id="hero-title">Gửi bạn<br />một <em>mùa hoa</em><br />dịu dàng.</h1>
-          <p className="hero-description">Vì bạn xứng đáng được nâng niu — hôm nay, ngày mai, và cả những ngày bình thường nhất.</p>
+          <h1 id="hero-title">Gửi em<br />một <em>mùa hoa</em><br />dịu dàng.</h1>
+          <p className="hero-description">Vì em xứng đáng được nâng niu — hôm nay, ngày mai, và cả những ngày bình thường nhất.</p>
           <button className="gift-button" onClick={openGift} aria-expanded={received}>
-            <span>{received ? "Mở lại món quà" : "Chạm để nhận hoa"}</span><span className="button-arrow" aria-hidden="true">{received ? "↻" : "↗"}</span>
+            <span>{received ? "Mở lại món quà" : "Chạm để nhận hoa"}</span>
+            <svg className="button-arrow" viewBox="0 0 20 20" aria-hidden="true">
+              {received ? (
+                <path d="M17 8a7 7 0 1 0 1 4M17 3v5h-5" />
+              ) : (
+                <path d="M5 15 15 5M6 5h9v9" />
+              )}
+            </svg>
           </button>
           <div className={`gift-note ${received ? "visible" : ""}`} aria-live="polite">
             <span className="note-sparkle">✳</span>
-            <p>{received ? "Chúc bạn luôn rực rỡ theo cách của riêng mình. Happy Women’s Day!" : "Một bó hoa nhỏ, một lời thương thật lớn."}</p>
+            <p>{received ? "Chúc em luôn rực rỡ theo cách của riêng mình. Happy Women’s Day!" : "Một bó hoa nhỏ, một lời thương thật lớn."}</p>
           </div>
         </div>
 
-        <div className="flower-stage" aria-label="Bó hoa dành tặng bạn" ref={flowerStageRef}>
+        <div className="flower-stage" aria-label="Bó hoa dành tặng em" ref={flowerStageRef}>
           <div className="halo halo-one" /><div className="halo halo-two" />
           <div className="sun-disc" />
           <div className="flower-tag"><span>FOR YOU</span><b>♡</b></div>
