@@ -66,12 +66,24 @@ export default function GiftPage({ fontClassName }: { fontClassName: string }) {
   const [burst, setBurst] = useState(0);
   const flowerStageRef = useRef<HTMLDivElement>(null);
   const scrollFrameRef = useRef<number | null>(null);
+  const previousScrollBehaviorRef = useRef<string | null>(null);
+
+  function restoreScrollBehavior() {
+    if (previousScrollBehaviorRef.current !== null) {
+      document.documentElement.style.scrollBehavior = previousScrollBehaviorRef.current;
+      previousScrollBehaviorRef.current = null;
+    }
+  }
 
   function scrollToFlowerStage() {
     const flowerStage = flowerStageRef.current;
     if (!flowerStage) return;
 
-    if (scrollFrameRef.current !== null) window.cancelAnimationFrame(scrollFrameRef.current);
+    if (scrollFrameRef.current !== null) {
+      window.cancelAnimationFrame(scrollFrameRef.current);
+      scrollFrameRef.current = null;
+      restoreScrollBehavior();
+    }
 
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     if (reduceMotion) {
@@ -79,7 +91,7 @@ export default function GiftPage({ fontClassName }: { fontClassName: string }) {
       return;
     }
 
-    window.requestAnimationFrame(() => {
+    scrollFrameRef.current = window.requestAnimationFrame(() => {
       const startY = window.scrollY;
       const stageRect = flowerStage.getBoundingClientRect();
       const maxScrollY = document.documentElement.scrollHeight - window.innerHeight;
@@ -88,6 +100,9 @@ export default function GiftPage({ fontClassName }: { fontClassName: string }) {
         maxScrollY,
       ));
       let startTime: number | null = null;
+      const root = document.documentElement;
+      previousScrollBehaviorRef.current = root.style.scrollBehavior;
+      root.style.scrollBehavior = "auto";
 
       const animateScroll = (time: number) => {
         if (startTime === null) startTime = time;
@@ -98,6 +113,7 @@ export default function GiftPage({ fontClassName }: { fontClassName: string }) {
           scrollFrameRef.current = window.requestAnimationFrame(animateScroll);
         } else {
           scrollFrameRef.current = null;
+          restoreScrollBehavior();
         }
       };
 
