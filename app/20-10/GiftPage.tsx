@@ -168,7 +168,6 @@ export default function GiftPage({ fontClassName }: { fontClassName: string }) {
           <div className="flower-tag"><span>FOR YOU</span><b>♡</b></div>
           <div className="bouquet-wrap"><Bouquet /></div>
           <span className="floating-heart heart-one">♡</span><span className="floating-heart heart-two">✿</span><span className="floating-heart heart-three">♡</span>
-          <div className="stage-caption"><i /> <span>JUST FOR YOU</span></div>
         </div>
       </section>
 

@@ -63,8 +63,6 @@
 .celebration .heart-one { left: 12%; top: 36%; font-size: 24px; }
 .celebration .heart-two { right: 7%; top: 47%; font-size: 17px; animation-delay: -2s; }
 .celebration .heart-three { left: 20%; bottom: 17%; font-size: 16px; animation-delay: -1s; }
-.celebration .stage-caption { position: absolute; z-index: 3; right: 4%; bottom: 3%; display: flex; align-items: center; gap: 10px; color: #a38582; font-size: 7px; letter-spacing: 1.4px; }
-.celebration .stage-caption i { width: 28px; height: 1px; background: #bd8584; }
 .celebration .bottomline { height: 58px; margin: 0 clamp(24px, 7vw, 104px); border-top: 1px solid rgba(100, 59, 63, .15); display: flex; align-items: center; justify-content: space-between; color: #aa8e88; font-size: 7px; letter-spacing: 1.6px; }
 .celebration .footer-flower { color: #be7379; font-size: 15px; }
 
@@ -110,7 +108,6 @@
 .celebration .bouquet-wrap { width: 94%; }
 .celebration .flower-tag { width: 62px; height: 76px; right: 6%; top: 12%; gap: 8px; }
 .celebration .flower-tag span { font-size: 6px; }
-.celebration .stage-caption { right: 4%; bottom: 1%; font-size: 6px; }
 .celebration .heart-one { left: 4%; top: 37%; font-size: 20px; }
 .celebration .heart-two { right: 2%; top: 46%; }
 .celebration .heart-three { left: 12%; bottom: 15%; }
