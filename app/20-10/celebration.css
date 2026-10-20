@@ -81,7 +81,7 @@
 @keyframes float { 0%, 100% { transform: translateY(0) rotate(-4deg); } 50% { transform: translateY(-11px) rotate(8deg); } }
 @keyframes petal-fall { 0% { transform: translate3d(0,-4vh,0) rotate(10deg); opacity: 0; } 12% { opacity: 1; } 100% { transform: translate3d(80px,112vh,0) rotate(720deg); opacity: 0; } }
 
-@media (min-width: 1500px) { .hero { min-height: calc(100svh - 155px); } }
+@media (min-width: 1500px) { .celebration .hero { min-height: calc(100svh - 155px); } }
 @media (max-width: 900px) {
 .celebration .topbar { height: 72px; }
 .celebration .hero { width: min(640px, calc(100% - 48px)); grid-template-columns: 1fr; gap: 0; padding: 52px 0 25px; }
