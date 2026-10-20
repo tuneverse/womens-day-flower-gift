@@ -2,6 +2,8 @@ const Arrow = () => <span aria-hidden="true">↗</span>;
 
 const Check = () => <span className="check" aria-hidden="true">✓</span>;
 
+export const dynamic = "force-static";
+
 export default function Home() {
   return (
     <main>
