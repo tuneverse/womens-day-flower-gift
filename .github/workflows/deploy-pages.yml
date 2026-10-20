@@ -38,6 +38,9 @@ jobs:
         env:
           NEXT_BASE_PATH: /womens-day-flower-gift
 
+      - name: Inspect exported routes
+        run: find dist/client -maxdepth 4 -type f | sort
+
       - name: Add Pages marker
         run: touch dist/client/.nojekyll
 
