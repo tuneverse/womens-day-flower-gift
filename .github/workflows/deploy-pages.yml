@@ -47,7 +47,7 @@ jobs:
           next_dirs = [path for path in root.rglob("_next") if path.is_dir()]
           if len(next_dirs) != 1:
               raise SystemExit(f"Expected one _next asset directory, found {len(next_dirs)}")
-          next_dirs[0].rename(next_dirs[0].with_name("next-assets"))
+          next_dirs[0].rename(root / "next-assets")
 
           text_suffixes = {".html", ".js", ".css", ".json", ".rsc", ".txt"}
           for path in root.rglob("*"):
