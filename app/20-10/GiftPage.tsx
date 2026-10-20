@@ -61,7 +61,7 @@ function Bouquet() {
   );
 }
 
-export default function GiftPage() {
+export default function GiftPage({ fontClassName }: { fontClassName: string }) {
   const [received, setReceived] = useState(false);
   const [burst, setBurst] = useState(0);
 
@@ -71,7 +71,7 @@ export default function GiftPage() {
   }
 
   return (
-    <main className={`celebration ${received ? "is-open" : ""}`} id="top">
+    <main className={`${fontClassName} celebration ${received ? "is-open" : ""}`} id="top">
       <div className="grain" aria-hidden="true" />
       {received && <div className="petal-shower" key={burst} aria-hidden="true">{petals.map((petal) => <i key={petal} style={{ "--left": `${(petal * 37 + 7) % 101}%`, "--delay": `${(petal % 9) * -0.23}s`, "--duration": `${3.8 + (petal % 7) * 0.37}s` } as CSSProperties} />)}</div>}
 

@@ -1,6 +1,14 @@
 import type { Metadata } from "next";
+import { Noto_Serif } from "next/font/google";
 import "./celebration.css";
 import GiftPage from "./GiftPage";
+
+const editorial = Noto_Serif({
+  variable: "--font-noto-serif",
+  subsets: ["latin", "latin-ext", "vietnamese"],
+  weight: "400",
+  style: ["normal", "italic"],
+});
 
 export const dynamic = "force-static";
 
@@ -15,5 +23,5 @@ export const metadata: Metadata = {
 };
 
 export default function October20Page() {
-  return <GiftPage />;
+  return <GiftPage fontClassName={editorial.variable} />;
 }

@@ -6,7 +6,7 @@
   --blush: #f5e5df;
   --cream: #fcf7ef;
   --muted: #957e7c;
-  --font-editorial: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  --font-editorial: var(--font-noto-serif), "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
 }
 
 .celebration, .celebration * { box-sizing: border-box; }
