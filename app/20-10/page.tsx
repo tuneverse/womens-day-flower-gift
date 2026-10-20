@@ -13,10 +13,10 @@ const editorial = Noto_Serif({
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
-  title: "Tháng Mười Thương Mến — Gửi em một mùa hoa",
+  title: "Quà 20/10 — Gửi em một mùa hoa",
   description: "Một món quà nhỏ dành riêng cho em nhân ngày Phụ nữ Việt Nam 20/10.",
   openGraph: {
-    title: "Tháng Mười Thương Mến — Gửi em một mùa hoa",
+    title: "Quà 20/10 — Gửi em một mùa hoa",
     description: "Một món quà nhỏ dành riêng cho em nhân ngày Phụ nữ Việt Nam 20/10.",
     type: "website",
   },
