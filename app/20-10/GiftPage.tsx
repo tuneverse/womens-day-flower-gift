@@ -92,11 +92,7 @@ export default function GiftPage({ fontClassName }: { fontClassName: string }) {
       const animateScroll = (time: number) => {
         if (startTime === null) startTime = time;
         const progress = Math.min((time - startTime) / 1600, 1);
-        const eased = progress < 0.5
-          ? 4 * progress * progress * progress
-          : 1 - Math.pow(-2 * progress + 2, 3) / 2;
-
-        window.scrollTo(0, startY + (targetY - startY) * eased);
+        window.scrollTo(0, startY + (targetY - startY) * progress);
 
         if (progress < 1) {
           scrollFrameRef.current = window.requestAnimationFrame(animateScroll);
