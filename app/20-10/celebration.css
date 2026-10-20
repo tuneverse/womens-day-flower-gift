@@ -42,9 +42,6 @@
 .celebration .note-sparkle { font-size: 14px; color: #c8797e; transition: transform .5s; }
 .celebration .gift-note.visible { color: var(--wine); }
 .celebration .gift-note.visible .note-sparkle { transform: rotate(90deg) scale(1.15); }
-.celebration .signature { margin-top: 12px; padding-top: 16px; border-top: 1px solid rgba(100, 59, 63, .15); width: min(370px, 100%); display: flex; flex-direction: column; gap: 4px; }
-.celebration .signature span { color: #b18f89; font: italic 12px var(--font-editorial); }
-.celebration .signature strong { color: #6e4950; font: 700 9px Arial, sans-serif; letter-spacing: 1.1px; text-transform: uppercase; }
 
 .celebration .flower-stage { height: min(690px, calc(100svh - 205px)); min-height: 485px; position: relative; display: grid; place-items: center; }
 .celebration .flower-stage::before { content: ""; position: absolute; width: min(92%, 610px); aspect-ratio: 1; border-radius: 50%; background: #f7eae2; }
@@ -107,7 +104,6 @@
 .celebration .hero-description { max-width: 315px; font-size: 14px; margin: 19px 0 20px; }
 .celebration .gift-button { width: min(100%, 250px); }
 .celebration .gift-note { min-height: 49px; margin-top: 14px; }
-.celebration .signature { margin-top: 7px; padding-top: 12px; }
 .celebration .flower-stage { height: 105vw; min-height: 340px; max-height: 470px; margin-top: 7px; }
 .celebration .flower-stage::before { width: 98%; }
 .celebration .sun-disc { width: 70%; top: 7%; left: 16%; }

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type CSSProperties } from "react";
+import { useRef, useState, type CSSProperties } from "react";
 
 const petals = Array.from({ length: 18 }, (_, index) => index);
 
@@ -64,10 +64,16 @@ function Bouquet() {
 export default function GiftPage({ fontClassName }: { fontClassName: string }) {
   const [received, setReceived] = useState(false);
   const [burst, setBurst] = useState(0);
+  const flowerStageRef = useRef<HTMLDivElement>(null);
 
   function openGift() {
     setReceived(true);
     setBurst((current) => current + 1);
+
+    if (window.matchMedia("(max-width: 520px)").matches) {
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      flowerStageRef.current?.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "center" });
+    }
   }
 
   return (
@@ -93,10 +99,9 @@ export default function GiftPage({ fontClassName }: { fontClassName: string }) {
             <span className="note-sparkle">✳</span>
             <p>{received ? "Chúc bạn luôn rực rỡ theo cách của riêng mình. Happy Women’s Day!" : "Một bó hoa nhỏ, một lời thương thật lớn."}</p>
           </div>
-          <div className="signature"><span>with love,</span><strong>những người thương bạn</strong></div>
         </div>
 
-        <div className="flower-stage" aria-label="Bó hoa dành tặng bạn">
+        <div className="flower-stage" aria-label="Bó hoa dành tặng bạn" ref={flowerStageRef}>
           <div className="halo halo-one" /><div className="halo halo-two" />
           <div className="sun-disc" />
           <div className="flower-tag"><span>FOR YOU</span><b>♡</b></div>
