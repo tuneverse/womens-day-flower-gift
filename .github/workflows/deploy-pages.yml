@@ -40,11 +40,15 @@ jobs:
 
       - name: Prepare Pages-compatible asset paths
         run: |
-          mv dist/client/_next dist/client/next-assets
           python3 - <<'PY'
           from pathlib import Path
 
           root = Path("dist/client")
+          next_dirs = [path for path in root.rglob("_next") if path.is_dir()]
+          if len(next_dirs) != 1:
+              raise SystemExit(f"Expected one _next asset directory, found {len(next_dirs)}")
+          next_dirs[0].rename(next_dirs[0].with_name("next-assets"))
+
           text_suffixes = {".html", ".js", ".css", ".json", ".rsc", ".txt"}
           for path in root.rglob("*"):
               if path.is_file() and path.suffix in text_suffixes:
