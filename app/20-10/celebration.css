@@ -29,7 +29,7 @@
 .celebration .pretitle-line { width: 27px; height: 1px; background: var(--rose); }
 .celebration .date-script { margin: 37px 0 11px; color: #b06e73; font: italic 17px var(--font-editorial); }
 .celebration .date-script span { font: 15px Arial, sans-serif; padding-left: 4px; }
-.celebration h1 { margin: 0; color: #4a2d35; font: 400 clamp(60px, 7.25vw, 100px)/.99 var(--font-editorial); letter-spacing: -4.5px; }
+.celebration h1 { margin: 0; color: #4a2d35; font: 400 clamp(60px, 6.4vw, 88px)/.99 var(--font-editorial); letter-spacing: -4.5px; }
 .celebration h1 em { color: var(--wine); font-weight: 400; }
 .celebration .hero-description { max-width: 370px; margin: 26px 0 25px; color: #846f70; font: 15px/1.8 var(--font-editorial); }
 .celebration .gift-button { min-width: 220px; display: inline-flex; justify-content: space-between; align-items: center; gap: 25px; border: 0; border-radius: 2px; padding: 15px 17px 15px 20px; color: #fff9f1; background: var(--wine); font-size: 11px; letter-spacing: .4px; cursor: pointer; box-shadow: 0 8px 22px rgba(106, 52, 66, .14); transition: transform .25s ease, background .25s ease, box-shadow .25s ease; }
