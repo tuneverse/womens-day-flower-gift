@@ -65,14 +65,56 @@ export default function GiftPage({ fontClassName }: { fontClassName: string }) {
   const [received, setReceived] = useState(false);
   const [burst, setBurst] = useState(0);
   const flowerStageRef = useRef<HTMLDivElement>(null);
+  const scrollFrameRef = useRef<number | null>(null);
+
+  function scrollToFlowerStage() {
+    const flowerStage = flowerStageRef.current;
+    if (!flowerStage) return;
+
+    if (scrollFrameRef.current !== null) window.cancelAnimationFrame(scrollFrameRef.current);
+
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduceMotion) {
+      flowerStage.scrollIntoView({ behavior: "auto", block: "center" });
+      return;
+    }
+
+    window.requestAnimationFrame(() => {
+      const startY = window.scrollY;
+      const stageRect = flowerStage.getBoundingClientRect();
+      const maxScrollY = document.documentElement.scrollHeight - window.innerHeight;
+      const targetY = Math.max(0, Math.min(
+        startY + stageRect.top + stageRect.height / 2 - window.innerHeight / 2,
+        maxScrollY,
+      ));
+      let startTime: number | null = null;
+
+      const animateScroll = (time: number) => {
+        if (startTime === null) startTime = time;
+        const progress = Math.min((time - startTime) / 1600, 1);
+        const eased = progress < 0.5
+          ? 4 * progress * progress * progress
+          : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+
+        window.scrollTo(0, startY + (targetY - startY) * eased);
+
+        if (progress < 1) {
+          scrollFrameRef.current = window.requestAnimationFrame(animateScroll);
+        } else {
+          scrollFrameRef.current = null;
+        }
+      };
+
+      scrollFrameRef.current = window.requestAnimationFrame(animateScroll);
+    });
+  }
 
   function openGift() {
     setReceived(true);
     setBurst((current) => current + 1);
 
     if (window.matchMedia("(max-width: 520px)").matches) {
-      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      flowerStageRef.current?.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "center" });
+      scrollToFlowerStage();
     }
   }
 
@@ -114,7 +156,7 @@ export default function GiftPage({ fontClassName }: { fontClassName: string }) {
           <div className="flower-tag"><span>FOR YOU</span><b>♡</b></div>
           <div className="bouquet-wrap"><Bouquet /></div>
           <span className="floating-heart heart-one">♡</span><span className="floating-heart heart-two">✿</span><span className="floating-heart heart-three">♡</span>
-          <div className="stage-caption"><span>01 / 01</span><i /> <span>JUST FOR YOU</span></div>
+          <div className="stage-caption"><i /> <span>JUST FOR YOU</span></div>
         </div>
       </section>
 
